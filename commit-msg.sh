@@ -1,8 +1,8 @@
 #!/bin/sh
 # 
-# ==================== GitHook Semantic Inspect Script v1.0.2 ====================
+# ==================== GitHook Semantic Inspect Script v1.0.1 ====================
 # AUTHOR: rafaelsouzars
-# Date: 29/08/2025
+# Date: 09/08/2025
 # Github: https://github.com/rafaelsouzars
 #
 # Este script de hook verifica a mensagem de log de commit.
