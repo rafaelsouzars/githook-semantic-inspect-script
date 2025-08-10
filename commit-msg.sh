@@ -1,6 +1,6 @@
 #!/bin/sh
 # 
-# ==================== GitHook Semantic Inspect Script v1.0.2 ====================
+# ==================== GitHook Semantic Inspect Script v1.1.2 ====================
 # AUTHOR: rafaelsouzars
 # Date: 10/08/2025
 # Github: https://github.com/rafaelsouzars
@@ -40,11 +40,22 @@ COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
 
 # Expressão regular de padronização das mensagens do commit
 COMMIT_REGEX='^(:(tada|sparkles|bug|lipstick|wrench|truck|bricks|bulb|books|ok_hand|recycler|broom|boom|zap|package|rocket|white_check_mark|heavy_plus_sign|heavy_minus_sign|card_file_box|test_tube|iphone|pencil|label|lock|mag|goal_net|construction|wheelchair|dizzy|arrow_up|arrow_down|wastedbasket):\s)?(build|ci|docs|feat|fix|perf|refactor|style|test|chore|revert|wip|release|hotfix|rollback|raw|cleanup|remove|init)(\([a-zA-Z0-9_.-]+\))?(!)?: .+$'
+#TYPE_COMMIT_REGEX=''
 
-# Teste de REGEX, dispara uma saida para o usuário se o resultado for false
-test "$(egrep -e "$COMMIT_REGEX" "$COMMIT_MSG_FILE")" || {
-
-	echo >&2 -e "${WHITE}${BK_BLUE}[==================== GitHook Semantic Inspect Script v1.0.2 ====================]${DEFAULT}"
+# Testa a mensagem do commit com o PATTERN REGEX
+if [ "$(egrep -e "$COMMIT_REGEX" "$COMMIT_MSG_FILE")" ]; then
+	echo >&2
+	echo >&2 -e "${WHITE}${BK_BLUE}[==================== GitHook Semantic Inspect Script v1.1.2 ====================]${DEFAULT}"
+	echo >&2 -e "${BK_GREEN}SUCCESS: O commit foi realizado com sucesso.${DEFAULT}"
+	echo >&2
+	echo >&2 -e "${GREEN}(OK) COMMIT => ${BLACK}${BK_GREEN}'${COMMIT_MSG}'${DEFAULT}"
+	echo
+	echo >&2 -e "${BK_BLUE}Programmer: https://github.com/rafaelsouzars${DEFAULT}"
+	echo >&2 -e "${WHITE}${BK_BLUE}[==================== GitHook Semantic Inspect Script v1.1.2 ====================]${DEFAULT}"	
+	echo >&2 -e "${GREEN}[=== FINISHED ===]${DEFAULT}"
+	exit 0	
+else
+	echo >&2 -e "${WHITE}${BK_RED}[==================== GitHook Semantic Inspect Script v1.1.2 ====================]${DEFAULT}"
 	echo >&2 -e "${BLACK}${BK_RED}ERRO: A mensagem de commit não segue o formato do conventional Commits.${DEFAULT}"
 	echo >&2
 	echo >&2 -e "${RED}(!) COMMIT => ${BLACK}${BK_RED}'${COMMIT_MSG}'${DEFAULT}"
@@ -64,7 +75,6 @@ test "$(egrep -e "$COMMIT_REGEX" "$COMMIT_MSG_FILE")" || {
 	echo >&2 -e "${GREEN}  ci:${DEFAULT}       Alterações nos arquivos de configuração de CI ou scripts."
 	echo >&2 -e "${GREEN}  perf:${DEFAULT}     Melhorias de desempenho."
 	echo >&2 -e "${GREEN}  revert:${DEFAULT}   Reverter um commit anterior."
-	echo >&2 -e "${GREEN}  release:${DEFAULT}  Novo release."
 	echo >&2
 	echo >&2 -e "${BK_GREEN}Emojis:${DEFAULT}"
 	echo >&2 -e "${GREEN}tada|sparklers|bug|lipstick|wrench|truck|bricks|bulb|books|ok_hand|recycler|broom|boom|zap"
@@ -77,6 +87,8 @@ test "$(egrep -e "$COMMIT_REGEX" "$COMMIT_MSG_FILE")" || {
 	echo >&2 -e "  fix(api)!: resolver problema de timeout"
 	echo >&2 -e "  docs(readme): atualizar instruções de instalação"
 	echo
-	echo >&2 -e "${BK_BLUE}Programmer: https://github.com/rafaelsouzars${DEFAULT}"
+	echo >&2 -e "${BK_RED}Programmer: https://github.com/rafaelsouzars${DEFAULT}"
+	echo >&2 -e "${WHITE}${BK_RED}[==================== GitHook Semantic Inspect Script v1.1.2 ====================]${DEFAULT}"
+	echo >&2
 	exit 1
-}
+fi
