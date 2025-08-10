@@ -1,8 +1,8 @@
 #!/bin/sh
 # 
-# ==================== GitHook Semantic Inspect Script v1.0.1 ====================
+# ==================== GitHook Semantic Inspect Script v1.0.2 ====================
 # AUTHOR: rafaelsouzars
-# Date: 09/08/2025
+# Date: 10/08/2025
 # Github: https://github.com/rafaelsouzars
 #
 # Este script de hook verifica a mensagem de log de commit.
@@ -44,7 +44,7 @@ COMMIT_REGEX='^(:(tada|sparkles|bug|lipstick|wrench|truck|bricks|bulb|books|ok_h
 # Teste de REGEX, dispara uma saida para o usuário se o resultado for false
 test "$(egrep -e "$COMMIT_REGEX" "$COMMIT_MSG_FILE")" || {
 
-	echo >&2 -e "${WHITE}${BK_BLUE}[==================== GitHook Semantic Inspect Script v1.0.0 ====================]${DEFAULT}"
+	echo >&2 -e "${WHITE}${BK_BLUE}[==================== GitHook Semantic Inspect Script v1.0.2 ====================]${DEFAULT}"
 	echo >&2 -e "${BLACK}${BK_RED}ERRO: A mensagem de commit não segue o formato do conventional Commits.${DEFAULT}"
 	echo >&2
 	echo >&2 -e "${RED}(!) COMMIT => ${BLACK}${BK_RED}'${COMMIT_MSG}'${DEFAULT}"
@@ -64,6 +64,7 @@ test "$(egrep -e "$COMMIT_REGEX" "$COMMIT_MSG_FILE")" || {
 	echo >&2 -e "${GREEN}  ci:${DEFAULT}       Alterações nos arquivos de configuração de CI ou scripts."
 	echo >&2 -e "${GREEN}  perf:${DEFAULT}     Melhorias de desempenho."
 	echo >&2 -e "${GREEN}  revert:${DEFAULT}   Reverter um commit anterior."
+	echo >&2 -e "${GREEN}  release:${DEFAULT}  Novo release."
 	echo >&2
 	echo >&2 -e "${BK_GREEN}Emojis:${DEFAULT}"
 	echo >&2 -e "${GREEN}tada|sparklers|bug|lipstick|wrench|truck|bricks|bulb|books|ok_hand|recycler|broom|boom|zap"
