@@ -1,6 +1,6 @@
 #!/bin/sh
 # 
-# ==================== GitHook Semantic Inspect Script v1.0.0 ====================
+# ==================== GitHook Semantic Inspect Script v1.0.2 ====================
 # AUTHOR: rafaelsouzars
 # Date: 29/08/2025
 # Github: https://github.com/rafaelsouzars
@@ -78,3 +78,4 @@ test "$(egrep -e "$COMMIT_REGEX" "$COMMIT_MSG_FILE")" || {
 	echo
 	echo >&2 -e "${BK_BLUE}Programmer: https://github.com/rafaelsouzars${DEFAULT}"
 	exit 1
+}
