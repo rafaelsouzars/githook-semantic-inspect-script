@@ -1,8 +1,8 @@
 #!/bin/sh
 # 
-# ==================== GitHook Semantic Inspect Script v1.1.3 ====================
+# ==================== GitHook Semantic Inspect Script ====================
 # AUTHOR: rafaelsouzars
-# Date: 10/08/2025
+# Date: 18/02/2026
 # Github: https://github.com/rafaelsouzars
 #
 # Este script de hook verifica a mensagem de log de commit.
@@ -14,6 +14,9 @@
 # Para habilitar este hook, renomeie este arquivo .sh para "commit-msg" (sem a extensão),
 # copie e substitua o arquivo (de mesmo nome) na pasta .git/hooks que fica dentro da pasta do
 # seu projeto.
+
+# Variável de controle de versão
+SCRIPT_VERSION="v1.2.3"
 
 # Variáveis com os códicos de escape ASCII referentes as cores do foreground
 BLACK="\033[0;30m"
@@ -45,17 +48,17 @@ COMMIT_REGEX='^(:(tada|sparkles|bug|lipstick|wrench|truck|bricks|bulb|books|ok_h
 # Testa a mensagem do commit com o PATTERN REGEX
 if [ "$(egrep -e "$COMMIT_REGEX" "$COMMIT_MSG_FILE")" ]; then
 	echo >&2
-	echo >&2 -e "${WHITE}${BK_BLUE}[==================== GitHook Semantic Inspect Script v1.1.2 ====================]${DEFAULT}"
+	echo >&2 -e "${WHITE}${BK_BLUE}[==================== GitHook Semantic Inspect Script ${SCRIPT_VERSION} ====================]${DEFAULT}"
 	echo >&2 -e "${BK_GREEN}SUCCESS: O commit foi realizado com sucesso.${DEFAULT}"
 	echo >&2
 	echo >&2 -e "${GREEN}(OK) COMMIT => ${BLACK}${BK_GREEN}'${COMMIT_MSG}'${DEFAULT}"
 	echo
 	echo >&2 -e "${BK_BLUE}Programmer: https://github.com/rafaelsouzars${DEFAULT}"
-	echo >&2 -e "${WHITE}${BK_BLUE}[==================== GitHook Semantic Inspect Script v1.1.2 ====================]${DEFAULT}"	
+	echo >&2 -e "${WHITE}${BK_BLUE}[==================== GitHook Semantic Inspect Script ${SCRIPT_VERSION} ====================]${DEFAULT}"	
 	echo >&2 -e "${GREEN}[=== FINISHED ===]${DEFAULT}"
 	exit 0	
 else
-	echo >&2 -e "${WHITE}${BK_RED}[==================== GitHook Semantic Inspect Script v1.1.2 ====================]${DEFAULT}"
+	echo >&2 -e "${WHITE}${BK_RED}[==================== GitHook Semantic Inspect Script ${SCRIPT_VERSION} ====================]${DEFAULT}"
 	echo >&2 -e "${BLACK}${BK_RED}ERRO: A mensagem de commit não segue o formato do conventional Commits.${DEFAULT}"
 	echo >&2
 	echo >&2 -e "${RED}(!) COMMIT => ${BLACK}${BK_RED}'${COMMIT_MSG}'${DEFAULT}"
@@ -88,7 +91,7 @@ else
 	echo >&2 -e "  docs(readme): atualizar instruções de instalação"
 	echo
 	echo >&2 -e "${BK_RED}Programmer: https://github.com/rafaelsouzars${DEFAULT}"
-	echo >&2 -e "${WHITE}${BK_RED}[==================== GitHook Semantic Inspect Script v1.1.2 ====================]${DEFAULT}"
+	echo >&2 -e "${WHITE}${BK_RED}[==================== GitHook Semantic Inspect Script ${SCRIPT_VERSION} ====================]${DEFAULT}"
 	echo >&2
 	exit 1
 fi
