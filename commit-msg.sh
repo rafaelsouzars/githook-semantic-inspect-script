@@ -1,6 +1,6 @@
 #!/bin/sh
 # 
-# ==================== GitHook Semantic Inspect Script v1.1.2 ====================
+# ==================== GitHook Semantic Inspect Script v1.1.3 ====================
 # AUTHOR: rafaelsouzars
 # Date: 10/08/2025
 # Github: https://github.com/rafaelsouzars
