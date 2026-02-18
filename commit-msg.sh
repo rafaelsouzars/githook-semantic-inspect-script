@@ -1,6 +1,6 @@
 #!/bin/sh
 # 
-# ==================== GitHook Semantic Inspect Script v1.1.2 ====================
+# ==================== GitHook Semantic Inspect Script v1.1.3 ====================
 # AUTHOR: rafaelsouzars
 # Date: 10/08/2025
 # Github: https://github.com/rafaelsouzars
@@ -39,7 +39,7 @@ COMMIT_MSG_FILE=$1
 COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
 
 # Expressão regular de padronização das mensagens do commit
-COMMIT_REGEX='^(:(tada|sparkles|bug|lipstick|wrench|truck|bricks|bulb|books|ok_hand|recycler|broom|boom|zap|package|rocket|white_check_mark|heavy_plus_sign|heavy_minus_sign|card_file_box|test_tube|iphone|pencil|label|lock|mag|goal_net|construction|wheelchair|dizzy|arrow_up|arrow_down|wastedbasket):\s)?(build|ci|docs|feat|fix|perf|refactor|style|test|chore|revert|wip|release|hotfix|rollback|raw|cleanup|remove|init)(\([a-zA-Z0-9_.-]+\))?(!)?: .+$'
+COMMIT_REGEX='^(:(tada|sparkles|bug|lipstick|wrench|truck|bricks|bulb|books|ok_hand|recycle|broom|boom|zap|package|rocket|white_check_mark|heavy_plus_sign|heavy_minus_sign|card_file_box|test_tube|iphone|pencil|label|lock|mag|goal_net|construction|wheelchair|dizzy|arrow_up|arrow_down|wastedbasket):\s)?(build|ci|docs|feat|fix|perf|refactor|style|test|chore|revert|wip|release|hotfix|rollback|raw|cleanup|remove|init)(\([a-zA-Z0-9_.-]+\))?(!)?: .+$'
 #TYPE_COMMIT_REGEX=''
 
 # Testa a mensagem do commit com o PATTERN REGEX
