@@ -16,7 +16,7 @@
 # seu projeto.
 
 # Variável de controle de versão
-SCRIPT_VERSION="v1.2.3"
+SCRIPT_VERSION="v1.3.3"
 
 # Variáveis com os códicos de escape ASCII referentes as cores do foreground
 BLACK="\033[0;30m"
@@ -42,7 +42,7 @@ COMMIT_MSG_FILE=$1
 COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
 
 # Expressão regular de padronização das mensagens do commit
-COMMIT_REGEX='^(:(tada|sparkles|bug|lipstick|wrench|truck|bricks|bulb|books|ok_hand|recycle|broom|boom|zap|package|rocket|white_check_mark|heavy_plus_sign|heavy_minus_sign|card_file_box|test_tube|iphone|pencil|label|lock|mag|goal_net|construction|wheelchair|dizzy|arrow_up|arrow_down|wastedbasket):\s)?(build|ci|docs|feat|fix|perf|refactor|style|test|chore|revert|wip|release|hotfix|rollback|raw|cleanup|remove|init)(\([a-zA-Z0-9_.-]+\))?(!)?: .+$'
+COMMIT_REGEX='^(:(tada|sparkles|bug|lipstick|wrench|truck|bricks|bulb|books|ok_hand|recycle|broom|boom|zap|package|rocket|white_check_mark|heavy_plus_sign|heavy_minus_sign|card_file_box|test_tube|iphone|pencil|label|lock|mag|goal_net|construction|wheelchair|dizzy|arrow_up|arrow_down|wastebasket|trollface):\s)?(build|ci|docs|feat|fix|perf|refactor|style|test|chore|revert|wip|release|hotfix|rollback|raw|cleanup|remove|init|makeshift)(\([a-zA-Z0-9_.-]+\))?(!)?: .+$'
 #TYPE_COMMIT_REGEX=''
 
 # Testa a mensagem do commit com o PATTERN REGEX
@@ -67,22 +67,24 @@ else
 	echo >&2 -e "  <:emoji opcional:> <tipo>(<escopo opcional>): <descrição>"
 	echo >&2
 	echo >&2 -e "${BK_GREEN}Os tipos válidos são:${DEFAULT}"
-	echo >&2 -e "${GREEN}  feat:${DEFAULT}     Uma nova funcionalidade."
-	echo >&2 -e "${GREEN}  fix:${DEFAULT}      Correção de um bug."
-	echo >&2 -e "${GREEN}  docs:${DEFAULT}     Alterações na documentação."
-	echo >&2 -e "${GREEN}  style:${DEFAULT}    Alterações de estilo de código (formatação, ponto-e-vírgula ausente, etc.)."
-	echo >&2 -e "${GREEN}  refactor:${DEFAULT} Refatoração de código (nem corrige bug nem adiciona funcionalidade)."
-	echo >&2 -e "${GREEN}  test:${DEFAULT}     Adicionar ou atualizar testes."
-	echo >&2 -e "${GREEN}  chore:${DEFAULT}    Tarefas rotineiras como atualização de dependências ou ferramentas de build."
-	echo >&2 -e "${GREEN}  build:${DEFAULT}    Alterações que afetam o sistema de build ou dependências externas."
-	echo >&2 -e "${GREEN}  ci:${DEFAULT}       Alterações nos arquivos de configuração de CI ou scripts."
-	echo >&2 -e "${GREEN}  perf:${DEFAULT}     Melhorias de desempenho."
-	echo >&2 -e "${GREEN}  revert:${DEFAULT}   Reverter um commit anterior."
+	echo >&2 -e "${GREEN}  init:${DEFAULT}      Commit inicial."
+	echo >&2 -e "${GREEN}  feat:${DEFAULT}      Uma nova funcionalidade."
+	echo >&2 -e "${GREEN}  fix:${DEFAULT}       Correção de um bug."
+	echo >&2 -e "${GREEN}  docs:${DEFAULT}      Alterações na documentação."
+	echo >&2 -e "${GREEN}  style:${DEFAULT}     Alterações de estilo de código (formatação, ponto-e-vírgula ausente, etc.)."
+	echo >&2 -e "${GREEN}  refactor:${DEFAULT}  Refatoração de código (nem corrige bug nem adiciona funcionalidade)."
+	echo >&2 -e "${GREEN}  test:${DEFAULT}      Adicionar ou atualizar testes."
+	echo >&2 -e "${GREEN}  chore:${DEFAULT}     Tarefas rotineiras como atualização de dependências ou ferramentas de build."
+	echo >&2 -e "${GREEN}  build:${DEFAULT}     Alterações que afetam o sistema de build ou dependências externas."
+	echo >&2 -e "${GREEN}  ci:${DEFAULT}        Alterações nos arquivos de configuração de CI ou scripts."
+	echo >&2 -e "${GREEN}  perf:${DEFAULT}      Melhorias de desempenho."
+	echo >&2 -e "${GREEN}  revert:${DEFAULT}    Reverter um commit anterior."
+	echo >&2 -e "${GREEN}  makeshift:${DEFAULT} Uso de Gambiarra."
 	echo >&2
 	echo >&2 -e "${BK_GREEN}Emojis:${DEFAULT}"
 	echo >&2 -e "${GREEN}tada|sparklers|bug|lipstick|wrench|truck|bricks|bulb|books|ok_hand|recycle|broom|boom|zap"
 	echo >&2 -e "package|rocket|white_check_mark|heavy_plus_sign|heavy_minus_sign|card_file_box|test_tube"
-	echo >&2 -e "iphone|pencil|label|lock|mag|goal_net|construction|wheelchair|dizzy|arrow_up|arrow_down|wastedbasket${DEFAULT}"
+	echo >&2 -e "iphone|pencil|label|lock|mag|goal_net|construction|wheelchair|dizzy|arrow_up|arrow_down|wastebasket|trollface${DEFAULT}"
 	echo >&2
 	echo >&2 -e "Exemplos:"
 	echo >&2 -e "  :tada: feat: Primeira feature"
