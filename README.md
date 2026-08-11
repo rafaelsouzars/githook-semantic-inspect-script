@@ -1,6 +1,6 @@
 # Githook Semantic Inspect Script
 
-![Version](https://img.shields.io/badge/version-1.2.3-green) ![Status](https://img.shields.io/badge/status-completed-green) ![GitHub Release](https://img.shields.io/github/v/release/rafaelsouzars/githook-semantic-inspect-script) ![GitHub top language](https://img.shields.io/github/languages/top/rafaelsouzars/githook-semantic-inspect-script?color=green)
+![Version](https://img.shields.io/badge/version-1.3.3-green) ![Status](https://img.shields.io/badge/status-completed-green) ![GitHub Release](https://img.shields.io/github/v/release/rafaelsouzars/githook-semantic-inspect-script) ![GitHub top language](https://img.shields.io/github/languages/top/rafaelsouzars/githook-semantic-inspect-script?color=green)
 
 Este script de hook verifica a mensagem de log de commit. Chamado por "git commit" com um argumento, o nome do arquivo que contém a mensagem de commit. O hook deve sair com um status diferente de zero após emitir uma mensagem apropriada se desejar interromper o commit. O hook tem permissão para editar o arquivo de mensagem de commit.
 
