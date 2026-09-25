@@ -16,7 +16,7 @@
 # seu projeto.
 
 # Variável de controle de versão
-SCRIPT_VERSION="v1.3.3"
+SCRIPT_VERSION="v1.4.3"
 
 # Variáveis com os códicos de escape ASCII referentes as cores do foreground
 BLACK="\033[0;30m"
@@ -64,7 +64,12 @@ else
 	echo >&2 -e "${RED}(!) COMMIT => ${BLACK}${BK_RED}'${COMMIT_MSG}'${DEFAULT}"
 	echo >&2
 	echo >&2 -e "${BLACK}${BK_YELLOW}O formato correto da mensagem de commit é obrigatório:${DEFAULT}"
-	echo >&2 -e "  <:emoji opcional:> <tipo>(<escopo opcional>): <descrição>"
+	echo >&2 -e "  [:emoji:] [tipo][(funcionalidade)]: [mensagem]"
+	echo >&2
+	echo >&2 -e "  emoji: Parâmetro opcional"
+	echo >&2 -e "  tipo: Parâmetro obrigatório"
+	echo >&2 -e "  (funcionalidade): Parâmetro opcional escrito dentro dos parenteses"
+	echo >&2 -e "  mensagem: Parâmetro obrigatório"
 	echo >&2
 	echo >&2 -e "${BK_GREEN}Os tipos válidos são:${DEFAULT}"
 	echo >&2 -e "${GREEN}  init:${DEFAULT}      Commit inicial."
@@ -79,12 +84,13 @@ else
 	echo >&2 -e "${GREEN}  ci:${DEFAULT}        Alterações nos arquivos de configuração de CI ou scripts."
 	echo >&2 -e "${GREEN}  perf:${DEFAULT}      Melhorias de desempenho."
 	echo >&2 -e "${GREEN}  revert:${DEFAULT}    Reverter um commit anterior."
+	echo >&2 -e "${GREEN}  release:${DEFAULT}   Release do projeto."
 	echo >&2 -e "${GREEN}  makeshift:${DEFAULT} Uso de Gambiarra."
 	echo >&2
 	echo >&2 -e "${BK_GREEN}Emojis:${DEFAULT}"
 	echo >&2 -e "${GREEN}tada|sparklers|bug|lipstick|wrench|truck|bricks|bulb|books|ok_hand|recycle|broom|boom|zap"
 	echo >&2 -e "package|rocket|white_check_mark|heavy_plus_sign|heavy_minus_sign|card_file_box|test_tube"
-	echo >&2 -e "iphone|pencil|label|lock|mag|goal_net|construction|wheelchair|dizzy|arrow_up|arrow_down|wastebasket|trollface${DEFAULT}"
+	echo >&2 -e "iphone|pencil|label|lock|mag|goal_net|construction|wheelchair|dizzy|arrow_up|arrow_down|wastebasket|floppy_disk|trollface${DEFAULT}"
 	echo >&2
 	echo >&2 -e "Exemplos:"
 	echo >&2 -e "  :tada: feat: Primeira feature"
